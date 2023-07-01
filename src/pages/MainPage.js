@@ -1,6 +1,5 @@
 import React from 'react'
-import { StCard, StInput, StInputContainer, StLabel, StLayout, StListContainer, StPushButton, StTop } from '../style/MainPageStyle';
-import { Link } from 'react-router-dom';
+import { StInput, StInputContainer, StLabel, StLayout, StListContainer, StPushButton, StTop } from '../style/MainPageStyle';
 import { useForm } from '../hooks/useForm'
 import TodoItem from '../components/TodoItem';
 
@@ -30,17 +29,17 @@ function MainPage() {
                     <StInput type="text" value={contents} onChange={onContentsChangeHandler} />
                     <StPushButton onClick={addListButton} >추가하기</StPushButton>
                 </StInputContainer>
-                <div className='list-container'>
+                <div>
                     <h2>진행중... 🔥</h2>
                     <StListContainer>
                         {list.filter((item) => (!item.success)).map((item) => (
-                            <TodoItem item={item} handleDelete={handleDelete} handleToggle={handleToggle} />
+                            <TodoItem item={item} key={item.id} handleDelete={handleDelete} handleToggle={handleToggle} />
                         ))}
                     </StListContainer>
                     <h2>완료! 🎉</h2>
                     <StListContainer>
                         {list.filter((item) => (item.success)).map((item) => (
-                            <TodoItem item={item} handleDelete={handleDelete} handleToggle={handleToggle} />
+                            <TodoItem item={item} key={item.id} handleDelete={handleDelete} handleToggle={handleToggle} />
                         ))}
                     </StListContainer>
                 </div>
