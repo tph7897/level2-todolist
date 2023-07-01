@@ -1,17 +1,11 @@
-import MainPage from "../pages/MainPage";
 export const ADD_TODO = 'ADD_TODO';
 export const DELETE_TODO = 'DELETE_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 
 
-export const addTodo = (title, contents) => ({
+export const addTodo = (payload) => ({
     type: ADD_TODO,
-    payload: {
-        id: Date.now(),
-        title,
-        contents,
-        success: false,
-    },
+    payload
 });
 
 export const deleteTodo = (id) => ({
@@ -27,8 +21,6 @@ export const toggleTodo = (id) => ({
         id,
     },
 });
-
-
 
 export const initialState = [
     {
@@ -51,8 +43,8 @@ const todoReducer = (state = initialState, action) => {
         case TOGGLE_TODO:
             return state.map((todo) =>
                 todo.id === action.payload.id ? { ...todo, success: !todo.success } : todo
-
             );
+            
         default:
             return state;
     }
