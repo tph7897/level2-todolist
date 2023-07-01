@@ -7,10 +7,11 @@ import { StTitle } from '../style/MainPageStyle';
 
 function DetailPage() {
     const params = useParams()
+
     const list = useSelector(state => state.todoReducer)
 
     const foundList = list.find((item) => {
-        return item.id == params.id
+        return item.id === +params.id
     }
     )
     return (
@@ -26,9 +27,6 @@ function DetailPage() {
 
     )
 }
-
-
-
 
 const Container = styled.div`
 display: flex;
@@ -53,7 +51,5 @@ height: 30px;
 border: 1px solid gray;
 border-radius : 10px; 
 `
-
-
 
 export default DetailPage
