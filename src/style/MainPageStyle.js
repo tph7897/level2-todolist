@@ -73,10 +73,10 @@ const StButton = styled.button`
         cursor: pointer;
         width: 100px;
         height: 30px;
-        border: 1px solid ${(props) => props.borderColor};
+        border: 1px solid ${(props) => props.bordercolor};
 
 &:hover{
-        background-color: ${(props) => props.borderColor};
+        background-color: ${(props) => props.bordercolor};
         transition: 0.6s;
 }        
 `
