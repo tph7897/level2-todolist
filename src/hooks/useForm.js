@@ -19,7 +19,13 @@ export const useForm = () => {
 
     // 추가하기
     const addListButton = (event) => {
-        dispatch(addTodo(title, contents));
+        const newTodo = {
+            id: Date.now(),
+            title,
+            contents,
+            success: false,
+        }
+        dispatch(addTodo(newTodo));
         setTitle('');
         setContents('');
     };
@@ -33,7 +39,6 @@ export const useForm = () => {
     const handleToggle = (id) => {
         dispatch(toggleTodo(id));
     };
-
 
     const dispatch = useDispatch()
     const list = useSelector(state => state.todoReducer)
